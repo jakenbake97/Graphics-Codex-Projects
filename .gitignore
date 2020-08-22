@@ -347,3 +347,7 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
+Cubes/data-files/log.txt
+
+Cubes/data-files/g3d-license.txt
