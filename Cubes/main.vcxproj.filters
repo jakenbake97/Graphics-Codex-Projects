@@ -4,6 +4,7 @@
     <ClCompile Include="source\App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\StairGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\App.h">
@@ -23,6 +24,8 @@
     <None Include="data-files\Scene\WhiteCube.Scene.Any" />
     <None Include="data-files\Scene\TiltedCube.Scene.Any" />
     <None Include="data-files\Scene\MyCornellBox.Scene.Any" />
+    <None Include="data-files\scene\Staircase.Scene.Any" />
+    <None Include="doc-files\report.md.html" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

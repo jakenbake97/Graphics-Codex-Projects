@@ -94,15 +94,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\App.cpp" />
+    <ClCompile Include="source\StairGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resources.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data-files\Scene\MyCornellBox.Scene.Any" />
+    <None Include="data-files\scene\Staircase.Scene.Any" />
     <None Include="data-files\Scene\TiltedCube.Scene.Any" />
     <None Include="data-files\Scene\WhiteCube.Scene.Any" />
     <None Include="data-files\test.Scene.Any" />
+    <None Include="doc-files\report.md.html" />
     <None Include="Doxyfile" />
     <None Include="journal\journal.md.html" />
     <None Include="mainpage.dox" />

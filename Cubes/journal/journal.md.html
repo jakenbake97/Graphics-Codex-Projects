@@ -3,6 +3,57 @@
                  **Development Journal**
 
 
+2020-08-23: 5:59 pm: stairs in action
+=============================================================
+![Correctly Placed stairs](2020-08-23__005_Correctly_Placed_stairs.mp4)
+
+stairs ended up having a larger rotation (14.4 degrees per cube)
+and a position
+based on the sin and cos of step number times - 14.4
+to offset the rotation, and
+then multiplied by 3 to give some space between them
+
+
+![Second Attempt](2020-08-23__004_Second_Attempt.jpg)
+
+Converting to rads and multipying by a constant gets us a lot closer, but now
+the constant needs to be tweaked.
+This initial test was 7.2 (which is 360/50)
+
+
+
+![First test of textured cube stairs](2020-08-23__003_First_test_of_textured_cube_stairs.jpg)
+
+This first test was generating 50 cubes and positioning them based on the cos(i)
+for the x coord and sin(i) for the y coord.
+To smooth out the curve of the
+stairs I'm going to multiply by a constant (and convert to radians)
+
+
+2020-8-23 @4:23 pm: Resume working on generating stair scene
+================================================================
+
+now that I have the general idea of what I need to do to build out the scene via code, I plan on generating the scene in a 
+few different "stages", starting with the header, the models section, and then the entities section.
+
+@5:36, I have the full code written out (minus correct stair positioning), but I'm having some issues with getting the scene
+to show up in the scene browser, there must be some issue with how it is being formatted.
+
+2020-8-23 @2:31 pm: Creating the stair scene
+=================================================
+
+I began by creating a cpp file that was going to use ofstream to write strings to a file which could then be
+interpreted as a scene, but after reading the advice section I decided to use the [TextOutput](http://casual-effects.com/g3d/G3D10/build/manual/class_g3_d_1_1_text_output.html#details)
+class from the G3D library, as that is what is reccommended to use. It also allows me to more visually create the file where
+I'll be able to see if the info printed is going to be a string, text, symbol, number, etc. so as of 2:35 I'm switching to that.
+
+Having trouble writing to the file using the TextOutput class, even when commiting data. Going to try setting the flush to false
+to see if that helps, otherwise my next theory is to try the same thing with ofstream again to verify that my file path is actually 
+correct.
+
+Turns out that I was accessigna nd writing to the file correctly, I just for some reason had to rebuild the solution because it
+was running the old version of the file. Going to take a quick break and then get back into the actual writing of the file now.
+
 2020-08-23 @1:24 pm: It's pronounced Cornell, and its the highest rank in the Ivy Leagues
 =============================================================
 
@@ -32,11 +83,9 @@ rotate each entity to become walls. (stopped work at 6:22 pm because my grandpar
 
 2020-08-22 @5:32 pm: Tilted Cube
 =============================================================
-![Better screenshot showing the bounds of the cube](2020-08-22__001_Better_screenshot_showing_the_bounds_of_the_cube.jpg)
-
-
-
 ![Gizmos Showing that the cube is properly rotated](2020-08-22__000_Gizmos_Showing_that_the_cube_is_properly_rotated.jpg)
+
+![Better screenshot showing the bounds of the cube](2020-08-22__001_Better_screenshot_showing_the_bounds_of_the_cube.jpg)
 
 This cube is positioned at (0,0,-2) and yawed (rotated around the vertical, y,
 axis) 45 degrees

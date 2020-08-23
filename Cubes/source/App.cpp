@@ -1,5 +1,6 @@
 /** \file App.cpp */
 #include "App.h"
+#include "StairGenerator.cpp"
 
 // Tells C++ to invoke command-line main() function even on OS X and Win32.
 G3D_START_AT_MAIN();
@@ -72,6 +73,8 @@ void App::onInit() {
     GApp::onInit();
 
     setFrameDuration(1.0f / 240.0f);
+
+    StairGenerator::GenerateStairScene();
 
     // Call setScene(shared_ptr<Scene>()) or setScene(MyScene::create()) to replace
     // the default scene here.
