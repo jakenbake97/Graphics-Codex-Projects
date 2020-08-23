@@ -74,7 +74,9 @@
             visualizationScale = 1; 
         }; 
         
-        ceiling = VisibleEntity { 
+        ceiling = 
+        /* * Testing if this gets pulled into documentation */
+        VisibleEntity { 
             canCauseCollisions = true; 
             frame = CFrame::fromXYZYPRDegrees(0, 1, 0, 0, 0, 90 ); 
             mass = 1; 
@@ -86,6 +88,19 @@
             frame = CFrame::fromXYZYPRDegrees(1.11499e-10, -0.0025508, 0, 0, -0, 90 ); 
             mass = 1; 
             model = "whiteCubeModel"; 
+        }; 
+        
+        interiorLight = Light { 
+            attenuation = ( 0, 0, 1 ); 
+            bulbPower = Power3(5 ); 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0, 0.979281, 0.0007941, 180, -87.8051, 180 ); 
+            mass = 1; 
+            rectangular = true; 
+            shadowMapSize = Vector2int16(2048, 2048 ); 
+            shadowsEnabled = true; 
+            spotHalfAngleDegrees = 89; 
+            type = "AREA"; 
         }; 
         
         leftWall = VisibleEntity { 
@@ -107,6 +122,13 @@
             texture = "cubemap/whiteroom/whiteroom-*.png"; 
         }; 
         
+        smallCube = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0.196124, 0.178909, 0.202028, -23.9885, 1.0182e-06, 90 ); 
+            mass = 1; 
+            model = "smallCubeModel"; 
+        }; 
+        
         sun = Light { 
             attenuation = ( 0, 0, 1 ); 
             bulbPower = Power3(4e+06 ); 
@@ -118,6 +140,13 @@
             shadowsEnabled = true; 
             spotHalfAngleDegrees = 5; 
             type = "SPOT"; 
+        }; 
+        
+        tallCube = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-0.233425, 0.32734, -0.152947, 17.469 ); 
+            mass = 1; 
+            model = "tallCubeModel"; 
         }; 
         
     }; 
@@ -165,6 +194,22 @@
             preprocess = { 
                 setMaterial(all(), Color3(1, 0, 0 ) ); 
                 transformGeometry(all(), Matrix4::scale(0.02, 1, 1 ) ) }; 
+            
+        }; 
+        
+        smallCubeModel = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), Color3(1, 1, 1 ) ); 
+                transformGeometry(all(), Matrix4::scale(0.33, 0.33, 0.33 ) ) }; 
+            
+        }; 
+        
+        tallCubeModel = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), Color3(1, 1, 1 ) ); 
+                transformGeometry(all(), Matrix4::scale(0.33, 0.66, 0.33 ) ) }; 
             
         }; 
         
