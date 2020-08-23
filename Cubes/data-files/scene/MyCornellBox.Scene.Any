@@ -1,0 +1,182 @@
+
+/* -*- c++ -*- */
+{ 
+    description = ""; 
+    entities = { 
+        backWall = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-2.15179e-08, 0.492945, -0.492272, 90, -90 ); 
+            mass = 1; 
+            model = "whiteCubeModel"; 
+        }; 
+        
+        camera = Camera { 
+            depthOfFieldSettings = DepthOfFieldSettings { 
+                enabled = true; 
+                farBlurRadiusFraction = 0.005; 
+                farBlurryPlaneZ = -100; 
+                farSharpPlaneZ = -40; 
+                focusPlaneZ = -10; 
+                lensRadius = 0.01; 
+                model = "NONE"; 
+                nearBlurRadiusFraction = 0.015; 
+                nearBlurryPlaneZ = -0.25; 
+                nearSharpPlaneZ = -1; 
+                reducedResolutionFactor = 1; 
+            }; 
+            
+            filmSettings = FilmSettings { 
+                antialiasingEnabled = true; 
+                antialiasingFilterRadius = 0; 
+                antialiasingHighQuality = true; 
+                bloomRadiusFraction = 0.015; 
+                bloomStrength = 0.25; 
+                debugZoom = 1; 
+                downscaleFilter = "BILINEAR"; 
+                effectsEnabled = true; 
+                gamma = 2.2; 
+                invertX = false; 
+                invertY = false; 
+                sensitivity = 1; 
+                temporalAntialiasingEnabled = false; 
+                toneCurve = Spline { 
+                    control = ( 0, 0.1, 0.2, 0.5, 1 ); 
+                    extrapolationMode = "LINEAR"; 
+                    finalInterval = -1; 
+                    interpolationMode = "CUBIC"; 
+                    time = ( 0, 0.1, 0.2, 0.5, 1 ); 
+                }; 
+                
+                upscaleFilter = "BILINEAR"; 
+                vignetteBottomStrength = 0.05; 
+                vignetteSizeFraction = 0.17; 
+                vignetteTopStrength = 0.5; 
+            }; 
+            
+            frame = CFrame::fromXYZYPRDegrees(0, 0, 5 ); 
+            mass = 1; 
+            motionBlurSettings = MotionBlurSettings { 
+                enabled = false; 
+                exposureFraction = 0.75; 
+                maxBlurDiameterFraction = 0.1; 
+                numSamples = 27; 
+            }; 
+            
+            overridePixelOffset = true; 
+            projection = Projection { 
+                farPlaneZ = -150; 
+                fovDegrees = 90; 
+                fovDirection = "HORIZONTAL"; 
+                nearPlaneZ = -0.15; 
+                pixelOffset = Vector2(0, 0 ); 
+            }; 
+            
+            visualizationScale = 1; 
+        }; 
+        
+        ceiling = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0, 1, 0, 0, 0, 90 ); 
+            mass = 1; 
+            model = "whiteCubeModel"; 
+        }; 
+        
+        floor = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(1.11499e-10, -0.0025508, 0, 0, -0, 90 ); 
+            mass = 1; 
+            model = "whiteCubeModel"; 
+        }; 
+        
+        leftWall = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-0.49364, 0.500402, 0 ); 
+            mass = 1; 
+            model = "redCubeModel"; 
+        }; 
+        
+        rightWall = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0.502008, 0.489625, 0 ); 
+            mass = 1; 
+            model = "greenCubeModel"; 
+        }; 
+        
+        skybox = Skybox { 
+            mass = 1; 
+            texture = "cubemap/whiteroom/whiteroom-*.png"; 
+        }; 
+        
+        sun = Light { 
+            attenuation = ( 0, 0, 1 ); 
+            bulbPower = Power3(4e+06 ); 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-15, 207, -41, -164, -77, 77 ); 
+            mass = 1; 
+            rectangular = true; 
+            shadowMapSize = Vector2int16(2048, 2048 ); 
+            shadowsEnabled = true; 
+            spotHalfAngleDegrees = 5; 
+            type = "SPOT"; 
+        }; 
+        
+    }; 
+    
+    lightingEnvironment = LightingEnvironment { 
+        ambientOcclusionSettings = AmbientOcclusionSettings { 
+            bias = 0.02; 
+            blurRadius = 2; 
+            blurStepSize = 1; 
+            depthPeelSeparationHint = 0.01; 
+            edgeSharpness = 1; 
+            enabled = true; 
+            highQualityBlur = true; 
+            intensity = 1; 
+            monotonicallyDecreasingBilateralWeights = false; 
+            numSamples = 20; 
+            packBlurKeys = false; 
+            radius = 0.75; 
+            temporalFilterSettings = TemporalFilter::Settings { 
+                falloffEndDistance = 0.07; 
+                falloffStartDistance = 0.05; 
+                hysteresis = 0.9; 
+            }; 
+            
+            temporallyVarySamples = true; 
+            useDepthPeelBuffer = false; 
+            useNormalBuffer = true; 
+            useNormalsInBlur = true; 
+            zStorage = "HALF"; 
+        }; 
+        
+    }; 
+    
+    models = { 
+        greenCubeModel = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), Color3(0, 1, 0 ) ); 
+                transformGeometry(all(), Matrix4::scale(0.02, 1, 1 ) ) }; 
+            
+        }; 
+        
+        redCubeModel = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), Color3(1, 0, 0 ) ); 
+                transformGeometry(all(), Matrix4::scale(0.02, 1, 1 ) ) }; 
+            
+        }; 
+        
+        whiteCubeModel = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), Color3(1, 1, 1 ) ); 
+                transformGeometry(all(), Matrix4::scale(0.02, 1, 1 ) ) }; 
+            
+        }; 
+        
+    }; 
+    
+    name = "My Cornell Box"; 
+} 

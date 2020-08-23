@@ -21,6 +21,8 @@
     </None>
     <None Include="journal\journal.md.html" />
     <None Include="data-files\Scene\WhiteCube.Scene.Any" />
+    <None Include="data-files\Scene\TiltedCube.Scene.Any" />
+    <None Include="data-files\Scene\MyCornellBox.Scene.Any" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

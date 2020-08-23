@@ -99,6 +99,8 @@
     <ResourceCompile Include="resources.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data-files\Scene\MyCornellBox.Scene.Any" />
+    <None Include="data-files\Scene\TiltedCube.Scene.Any" />
     <None Include="data-files\Scene\WhiteCube.Scene.Any" />
     <None Include="data-files\test.Scene.Any" />
     <None Include="Doxyfile" />

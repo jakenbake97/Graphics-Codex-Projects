@@ -1,0 +1,134 @@
+\hypertarget{class_app}{}\doxysection{App Class Reference}
+\label{class_app}\index{App@{App}}
+
+
+Application framework.  
+
+
+
+
+{\ttfamily \#include $<$App.\+h$>$}
+
+Inheritance diagram for App\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_app}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_abd3e70cc941f852a9222bffa570cddf3}{App}} (const G\+App\+::\+Settings \&settings=G\+App\+::\+Settings())
+\item 
+virtual void \mbox{\hyperlink{class_app_a383cf8e8949745f9b2b10651b27d1724}{on\+Init}} () override
+\item 
+virtual void \mbox{\hyperlink{class_app_a3656f79df36e36b1e440860213683b30}{on\+AI}} () override
+\item 
+virtual void \mbox{\hyperlink{class_app_ab6dba4ffa4c9ddeaf7a86f61e92b6723}{on\+Network}} () override
+\item 
+virtual void \mbox{\hyperlink{class_app_a51040dda7105b7c58f4f53a546f724c8}{on\+Simulation}} (Real\+Time rdt, Sim\+Time sdt, Sim\+Time idt) override
+\item 
+virtual void \mbox{\hyperlink{class_app_acb9d2a42331e3566cd4827b2c30be226}{on\+Pose}} (Array$<$ shared\+\_\+ptr$<$ Surface $>$ $>$ \&posed3D, Array$<$ shared\+\_\+ptr$<$ Surface2D $>$ $>$ \&posed2D) override
+\item 
+virtual void \mbox{\hyperlink{class_app_af972d991606143e0bfad7cbc1f619a48}{on\+Graphics3D}} (Render\+Device $\ast$rd, Array$<$ shared\+\_\+ptr$<$ Surface $>$ $>$ \&surface3D) override
+\item 
+virtual void \mbox{\hyperlink{class_app_a0a54199230ec726c49b139a29e847d69}{on\+Graphics2D}} (Render\+Device $\ast$rd, Array$<$ shared\+\_\+ptr$<$ Surface2D $>$ $>$ \&surface2D) override
+\item 
+virtual bool \mbox{\hyperlink{class_app_a7738874a329a883196ae7dcd5e4a6eeb}{on\+Event}} (const G\+Event \&e) override
+\item 
+virtual void \mbox{\hyperlink{class_app_a57d158969fc2678b47fc3f68d89c3d57}{on\+User\+Input}} (User\+Input $\ast$ui) override
+\item 
+virtual void \mbox{\hyperlink{class_app_afa6bf0695a9e06cc08cdad48f692a51e}{on\+Cleanup}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_app_acc651be7614a7d8dde8509f3ef510772}{make\+G\+UI}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application framework. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_app_abd3e70cc941f852a9222bffa570cddf3}\label{class_app_abd3e70cc941f852a9222bffa570cddf3}} 
+\index{App@{App}!App@{App}}
+\index{App@{App}!App@{App}}
+\doxysubsubsection{\texorpdfstring{App()}{App()}}
+{\footnotesize\ttfamily App\+::\+App (\begin{DoxyParamCaption}\item[{const G\+App\+::\+Settings \&}]{settings = {\ttfamily GApp\+:\+:Settings()} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_app_acc651be7614a7d8dde8509f3ef510772}\label{class_app_acc651be7614a7d8dde8509f3ef510772}} 
+\index{App@{App}!makeGUI@{makeGUI}}
+\index{makeGUI@{makeGUI}!App@{App}}
+\doxysubsubsection{\texorpdfstring{makeGUI()}{makeGUI()}}
+{\footnotesize\ttfamily void App\+::make\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Called from on\+Init \mbox{\Hypertarget{class_app_a3656f79df36e36b1e440860213683b30}\label{class_app_a3656f79df36e36b1e440860213683b30}} 
+\index{App@{App}!onAI@{onAI}}
+\index{onAI@{onAI}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onAI()}{onAI()}}
+{\footnotesize\ttfamily void App\+::on\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_afa6bf0695a9e06cc08cdad48f692a51e}\label{class_app_afa6bf0695a9e06cc08cdad48f692a51e}} 
+\index{App@{App}!onCleanup@{onCleanup}}
+\index{onCleanup@{onCleanup}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onCleanup()}{onCleanup()}}
+{\footnotesize\ttfamily void App\+::on\+Cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_a7738874a329a883196ae7dcd5e4a6eeb}\label{class_app_a7738874a329a883196ae7dcd5e4a6eeb}} 
+\index{App@{App}!onEvent@{onEvent}}
+\index{onEvent@{onEvent}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onEvent()}{onEvent()}}
+{\footnotesize\ttfamily bool App\+::on\+Event (\begin{DoxyParamCaption}\item[{const G\+Event \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_a0a54199230ec726c49b139a29e847d69}\label{class_app_a0a54199230ec726c49b139a29e847d69}} 
+\index{App@{App}!onGraphics2D@{onGraphics2D}}
+\index{onGraphics2D@{onGraphics2D}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onGraphics2D()}{onGraphics2D()}}
+{\footnotesize\ttfamily void App\+::on\+Graphics2D (\begin{DoxyParamCaption}\item[{Render\+Device $\ast$}]{rd,  }\item[{Array$<$ shared\+\_\+ptr$<$ Surface2D $>$ $>$ \&}]{surface2D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_af972d991606143e0bfad7cbc1f619a48}\label{class_app_af972d991606143e0bfad7cbc1f619a48}} 
+\index{App@{App}!onGraphics3D@{onGraphics3D}}
+\index{onGraphics3D@{onGraphics3D}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onGraphics3D()}{onGraphics3D()}}
+{\footnotesize\ttfamily void App\+::on\+Graphics3D (\begin{DoxyParamCaption}\item[{Render\+Device $\ast$}]{rd,  }\item[{Array$<$ shared\+\_\+ptr$<$ Surface $>$ $>$ \&}]{surface3D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_a383cf8e8949745f9b2b10651b27d1724}\label{class_app_a383cf8e8949745f9b2b10651b27d1724}} 
+\index{App@{App}!onInit@{onInit}}
+\index{onInit@{onInit}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onInit()}{onInit()}}
+{\footnotesize\ttfamily void App\+::on\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called before the application loop begins. Load data here and not in the constructor so that common exceptions will be automatically caught. \mbox{\Hypertarget{class_app_ab6dba4ffa4c9ddeaf7a86f61e92b6723}\label{class_app_ab6dba4ffa4c9ddeaf7a86f61e92b6723}} 
+\index{App@{App}!onNetwork@{onNetwork}}
+\index{onNetwork@{onNetwork}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onNetwork()}{onNetwork()}}
+{\footnotesize\ttfamily void App\+::on\+Network (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_acb9d2a42331e3566cd4827b2c30be226}\label{class_app_acb9d2a42331e3566cd4827b2c30be226}} 
+\index{App@{App}!onPose@{onPose}}
+\index{onPose@{onPose}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onPose()}{onPose()}}
+{\footnotesize\ttfamily void App\+::on\+Pose (\begin{DoxyParamCaption}\item[{Array$<$ shared\+\_\+ptr$<$ Surface $>$ $>$ \&}]{posed3D,  }\item[{Array$<$ shared\+\_\+ptr$<$ Surface2D $>$ $>$ \&}]{posed2D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_a51040dda7105b7c58f4f53a546f724c8}\label{class_app_a51040dda7105b7c58f4f53a546f724c8}} 
+\index{App@{App}!onSimulation@{onSimulation}}
+\index{onSimulation@{onSimulation}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onSimulation()}{onSimulation()}}
+{\footnotesize\ttfamily void App\+::on\+Simulation (\begin{DoxyParamCaption}\item[{Real\+Time}]{rdt,  }\item[{Sim\+Time}]{sdt,  }\item[{Sim\+Time}]{idt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_app_a57d158969fc2678b47fc3f68d89c3d57}\label{class_app_a57d158969fc2678b47fc3f68d89c3d57}} 
+\index{App@{App}!onUserInput@{onUserInput}}
+\index{onUserInput@{onUserInput}!App@{App}}
+\doxysubsubsection{\texorpdfstring{onUserInput()}{onUserInput()}}
+{\footnotesize\ttfamily void App\+::on\+User\+Input (\begin{DoxyParamCaption}\item[{User\+Input $\ast$}]{ui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{_app_8h}{App.\+h}}\item 
+source/\mbox{\hyperlink{_app_8cpp}{App.\+cpp}}\end{DoxyCompactItemize}

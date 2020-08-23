@@ -65,9 +65,9 @@ App::App(const GApp::Settings& settings) : GApp(settings) {
 }
 
 
-// Called before the application loop begins.  Load data here and
-// not in the constructor so that common exceptions will be
-// automatically caught.
+/** Called before the application loop begins.  Load data here and
+ not in the constructor so that common exceptions will be
+ automatically caught.*/
 void App::onInit() {
     GApp::onInit();
 
@@ -105,7 +105,6 @@ void App::onInit() {
 
     // Example of programmatically showing a texture browser for debugging
     // showInTextureBrowser("G3D::GBuffer/GLOSSY");
-
 }
 
 
