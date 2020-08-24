@@ -1,0 +1,285 @@
+
+/* -*- c++ -*- */
+{ 
+    description = ""; 
+    entities = { 
+        camera = Camera { 
+            depthOfFieldSettings = DepthOfFieldSettings { 
+                enabled = true; 
+                farBlurRadiusFraction = 0.005; 
+                farBlurryPlaneZ = -100; 
+                farSharpPlaneZ = -40; 
+                focusPlaneZ = -10; 
+                lensRadius = 0.01; 
+                model = "NONE"; 
+                nearBlurRadiusFraction = 0.015; 
+                nearBlurryPlaneZ = -0.25; 
+                nearSharpPlaneZ = -1; 
+                reducedResolutionFactor = 1; 
+            }; 
+            
+            filmSettings = FilmSettings { 
+                antialiasingEnabled = true; 
+                antialiasingFilterRadius = 0; 
+                antialiasingHighQuality = true; 
+                bloomRadiusFraction = 0.015; 
+                bloomStrength = 0.25; 
+                debugZoom = 1; 
+                downscaleFilter = "BILINEAR"; 
+                effectsEnabled = true; 
+                gamma = 2.2; 
+                invertX = false; 
+                invertY = false; 
+                sensitivity = 1; 
+                temporalAntialiasingEnabled = false; 
+                toneCurve = Spline { 
+                    control = ( 0, 0.1, 0.2, 0.5, 1 ); 
+                    extrapolationMode = "LINEAR"; 
+                    finalInterval = -1; 
+                    interpolationMode = "CUBIC"; 
+                    time = ( 0, 0.1, 0.2, 0.5, 1 ); 
+                }; 
+                
+                upscaleFilter = "BILINEAR"; 
+                vignetteBottomStrength = 0.05; 
+                vignetteSizeFraction = 0.17; 
+                vignetteTopStrength = 0.5; 
+            }; 
+            
+            frame = CFrame::fromXYZYPRDegrees(0, 0, 5 ); 
+            mass = 1; 
+            motionBlurSettings = MotionBlurSettings { 
+                enabled = false; 
+                exposureFraction = 0.75; 
+                maxBlurDiameterFraction = 0.1; 
+                numSamples = 27; 
+            }; 
+            
+            overridePixelOffset = true; 
+            projection = Projection { 
+                farPlaneZ = -150; 
+                fovDegrees = 90; 
+                fovDirection = "HORIZONTAL"; 
+                nearPlaneZ = -0.15; 
+                pixelOffset = Vector2(0, 0 ); 
+            }; 
+            
+            visualizationScale = 1; 
+        }; 
+        
+        chimney = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-65.2808, 22.1627, -1.98596, 0, -2.3745 ); 
+            mass = 1; 
+            model = "smallBrickBlock"; 
+        }; 
+        
+        chimneyTopper = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-65.4095, 28.4049, -1.8748 ); 
+            mass = 1; 
+            model = "metalBlock"; 
+        }; 
+        
+        ground = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0, -0.25, 0, 0, 0, 0 ); 
+            mass = 1; 
+            model = "grassBlock"; 
+        }; 
+        
+        house = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-59.3652, 7.27127, -0.356578, 90.4814 ); 
+            mass = 1; 
+            model = "largeBrickBlock"; 
+        }; 
+        
+        leaves1 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-36.785, 18.5955, -49.8278, 2.30765, -3.24675, -0.130767 ); 
+            mass = 1; 
+            model = "leaves"; 
+        }; 
+        
+        leaves2 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-16.8, 18.2231, 33.1175 ); 
+            mass = 1; 
+            model = "leaves"; 
+        }; 
+        
+        roof1 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-57.3928, 15.9867, 12.9641, 90.67, 18.3168, -1.41067 ); 
+            mass = 1; 
+            model = "roof"; 
+        }; 
+        
+        roof2 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-57.2099, 15.8397, -10.0013, 87.3822, 19.2535, 0.612163 ); 
+            mass = 1; 
+            model = "roof"; 
+        }; 
+        
+        skybox = Skybox { 
+            mass = 1; 
+            texture = "cubemap/noonclouds/noonclouds-*.png"; 
+        }; 
+        
+        sun = Light { 
+            attenuation = ( 0, 0, 1 ); 
+            bulbPower = Power3(4 ); 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0, 207, 0, -164, -77, 77 ); 
+            mass = 1; 
+            rectangular = true; 
+            shadowMapSize = Vector2int16(2048, 2048 ); 
+            shadowsEnabled = true; 
+            spotHalfAngleDegrees = 5; 
+            type = "DIRECTIONAL"; 
+        }; 
+        
+        tree1 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-16.6059, 6.70627, 32.3402 ); 
+            mass = 1; 
+            model = "trunk"; 
+        }; 
+        
+        tree2 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-35.3268, 6.54223, -48.7028 ); 
+            mass = 1; 
+            model = "trunk"; 
+        }; 
+        
+        window1 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0, -3.73875, 0 ); 
+            mass = 1; 
+            model = "window"; 
+        }; 
+        
+        window2 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(0, -2.87736, 0 ); 
+            mass = 1; 
+            model = "window"; 
+        }; 
+        
+        window3 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-54.3899, 8.87491, -16.2831, 180, -87.9568, -89.9122 ); 
+            mass = 1; 
+            model = "window"; 
+        }; 
+        
+        window4 = VisibleEntity { 
+            canCauseCollisions = true; 
+            frame = CFrame::fromXYZYPRDegrees(-54.2439, 6.98116, 13.5523, 2.89834, 89.0478, -88.2267 ); 
+            mass = 1; 
+            model = "window"; 
+        }; 
+        
+    }; 
+    
+    lightingEnvironment = LightingEnvironment { 
+        ambientOcclusionSettings = AmbientOcclusionSettings { 
+            bias = 0.02; 
+            blurRadius = 2; 
+            blurStepSize = 1; 
+            depthPeelSeparationHint = 0.01; 
+            edgeSharpness = 1; 
+            enabled = true; 
+            highQualityBlur = true; 
+            intensity = 1; 
+            monotonicallyDecreasingBilateralWeights = false; 
+            numSamples = 20; 
+            packBlurKeys = false; 
+            radius = 0.75; 
+            temporalFilterSettings = TemporalFilter::Settings { 
+                falloffEndDistance = 0.07; 
+                falloffStartDistance = 0.05; 
+                hysteresis = 0.9; 
+            }; 
+            
+            temporallyVarySamples = true; 
+            useDepthPeelBuffer = false; 
+            useNormalBuffer = true; 
+            useNormalsInBlur = true; 
+            zStorage = "HALF"; 
+        }; 
+        
+    }; 
+    
+    models = { 
+        grassBlock = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), Color3(0, 0.6, 0.121569 ) ); 
+                transformGeometry(all(), Matrix4::scale(500, 0.5, 500 ) ) }; 
+            
+        }; 
+        
+        largeBrickBlock = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/bricks.jpg"); 
+                transformGeometry(all(), Matrix4::scale(50, 15, 10 ) ) }; 
+            
+        }; 
+        
+        leaves = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/leaf.jpg"); 
+                transformGeometry(all(), Matrix4::scale(10, 6, 10 ) ) }; 
+            
+        }; 
+        
+        metalBlock = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/metal.jpg"); 
+                transformGeometry(all(), Matrix4::scale(10, 5, 10 ) ) }; 
+            
+        }; 
+        
+        roof = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/shingles.jpg"); 
+                transformGeometry(all(), Matrix4::scale(25, 0.25, 12 ) ) }; 
+            
+        }; 
+        
+        smallBrickBlock = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/bricks.jpg"); 
+                transformGeometry(all(), Matrix4::scale(5, 11, 5 ) ) }; 
+            
+        }; 
+        
+        trunk = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/woodGrain.jpg"); 
+                transformGeometry(all(), Matrix4::scale(5, 25, 5 ) ) }; 
+            
+        }; 
+        
+        window = ArticulatedModel::Specification { 
+            filename = "model/crate/crate.obj"; 
+            preprocess = { 
+                setMaterial(all(), "../data-files/texture/windowPane.jpg"); 
+                transformGeometry(all(), Matrix4::scale(5, 0.1, 8 ) ) }; 
+            
+        }; 
+        
+    }; 
+    
+    name = "My Design"; 
+} 
