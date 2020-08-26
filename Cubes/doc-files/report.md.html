@@ -39,12 +39,12 @@ them from their respective axis' positive direction. I.e. looking at the pitch a
 
 ![Second Specification showing my Cornell Box](../journal/2020-08-23__002_Final_Render_of_my_Cornell_box.jpg)
 
-3. Specification three was the most difficult, it required me to texture map a curving staircase without manuially editing the scene
+3. Specification three was the most difficult, it required me to texture map a curving staircase without manually editing the scene
 file or adjusting the scene in engine. To solve this, I created the StairGenerator (listed above) to create the scene file for me.
 
 ![Third Specifiaction Video](../journal/2020-08-23__005_Correctly_Placed_stairs.mp4)
 
-4. The final specification required me to create a scene of my own design containing at least 20 cubes. Thats where I created the
+4. The final specification required me to create a scene of my own design containing at least 20 cubes. That's where I created the
 janky house, which features cubes of various sizes containing 6 different textures.
 
 ![Janky Ass House](../journal/2020-08-23__006_Janky_Ass_House.jpg)
@@ -54,7 +54,7 @@ janky house, which features cubes of various sizes containing 6 different textur
 Creating my scene didn't take me too much time or effort (clearly), I was already pretty tired and I just wanted to move on to something
 else. To create it I just found a few different textures online and then assigned them to a cube model in the scene file. I also set the scale
 of each model and then added the entities for the model in my file. After creating all of the correct entities I launched the scene and
-editied positions and rotations of each object there
+edited positions and rotations of each object there
 
 ## Typeset Test
 
@@ -86,15 +86,15 @@ editied positions and rotations of each object there
    `App::App`?  (Tip: There are many reasons. Try throwing an exception from each, and consider
    the implications of throwing an exception from a class's constructor.)*
     
-    Then main reason I can think of is so that if the constructor has an error then the code waitin to be initialized
-    won't run preventing a whole mess of errors from files depending on others which didn't have their objects sucessfully created
+    Then main reason I can think of is so that if the constructor has an error then the code waiting to be initialized
+    won't run preventing a whole mess of errors from files depending on others which didn't have their objects successfully created
 
     Plus, it feels strange to run external code in an object's constructor. The initialization function confirms that the app object
-    exists and was sucessfully constructed.
+    exists and was successfully constructed.
 
    *4. What is the call chain that invokes `App::onGraphics3D`?*
     
-    The full chain is pretty long, but jist of it is, `onGraphics3D` is called by onGraphics in GApp, which was caled by load scene
+    The full chain is pretty long, but jist of it is, `onGraphics3D` is called by onGraphics in GApp, which was called by load scene
     in the same class which was called in the App's onInit event, which was called by GApp's beginRun, which was called from
     onRun, which was called by run, which was called by main.
 
@@ -118,7 +118,7 @@ editied positions and rotations of each object there
    `emissive`, and `transmissive` values. Speculate on why a homogeneous material (i.e., one
    without a pattern or image) would require four separate "colors" in its specification.*
 
-    Having the 4 seperate pieces of data allowsd for much more precise control of how the object interacts with light, creating a much
+    Having the 4 separate pieces of data allows for much more precise control of how the object interacts with light, creating a much
     more PBR appearance. Having just an rgb color will make the entire object that color only differing when the object is in direct light
     or shadow. The 4 color properties all take values which explain to the renderer how light should interact with the object, for example,
     the glossy most likely controls how much light is reflected directly at the viewing angle and the emissive determines the color of light 
@@ -126,18 +126,18 @@ editied positions and rotations of each object there
 
     ## Reflection
     
-    For this just being the simple begginner project, I learned quite a bit. The code base is still very intimidating just because of how large it is
+    For this just being the simple beginner project, I learned quite a bit. The code base is still very intimidating just because of how large it is
     but I do feel like I'm starting to make actual mental connections between the components I have discovered so far. This project's readings didn't
     teach me too much since they were primarily introductions, but I did learn some interesting C++ tips, like the = (assignment operator) actually has
     a copy call so it is more efficient to pass a value into an objects constructor `int x(5)` vs `int x = 5`. Writing the report was
-    more difficult than I anticipated, but it really helped me to recal and confirm the things I learned so they are definately worth doing.
+    more difficult than I anticipated, but it really helped me to recall and confirm the things I learned so they are definitely worth doing.
 
 
     ## Time
 
     Time for the general assignments took me 4:35, so right in the ballpark of the 5 hours estimated
 
-    Then I spent an adition 30 mins actually designing my custom scene and 2:45 working on the report.
+    Then I spent an aditional 30 mins actually designing my custom scene and 2:45 working on the report.
 
     So total time was ~ *7:44*
 
