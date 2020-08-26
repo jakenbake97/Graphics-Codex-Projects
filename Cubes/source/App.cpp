@@ -89,7 +89,7 @@ void App::onInit() {
             "G3D Simple Cornell Box (Area Light)" // Load something simple
 #       endif
 //        "G3D Debug Transparency"
-        //developerWindow->sceneEditorWindow->selectedSceneName()  // Load the first scene encountered 
+//developerWindow->sceneEditorWindow->selectedSceneName()  // Load the first scene encountered 
         );
 
     // Make the GUI after the scene is loaded because loading/rendering/simulation initialize

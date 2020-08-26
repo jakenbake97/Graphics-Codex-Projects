@@ -1,18 +1,157 @@
-<meta charset="utf-8" emacsmode="-*- markdown -*-">
+﻿<meta charset="utf-8" emacsmode="-*- markdown -*-">
 <link rel="stylesheet" href="https://casual-effects.com/markdeep/latest/journal.css?">
                  **Project Report**
 
-<style>
-    em.asterisk {
-        font-style: normal;
-        font-weight: bold;
-    }
-</style>
-<style class="fallback">
-    body {
-        visibility: hidden
-    }
-</style>
-<script>markdeepOptions={tocStyle:'long'};</script>
-<!-- Markdeep: -->
-<script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?" charset="utf-8"></script>
+## System Overview
+This project runs on the [G3D engine](https://casual-effects.com/g3d/www/index.html) and is the first project in the
+[programming projects](http://graphicscodex.com/projects/projects/index.html) section of the graphics codex. While I don't
+fully know how the G3D engine works yet, the main "environment" is controlled by the [App.cpp](../build/doc/html/class_app.html)
+file. In App, the only thing I changed was adding in a call to the [StairGenerator.cpp](../build/doc/html/class_stair_generator.html)
+This just generates the stair scene while the [onInit](../build/doc/html/class_app.html#a383cf8e8949745f9b2b10651b27d1724)
+method is being run.
+
+In [StairGenerator.cpp](../build/doc/html/class_stair_generator.html), I just write to a file all of the boiler plate code
+I need in order to create a scene in G3D, Then I loop 50 times to create a "step" entity for each step of the staircase.
+I generate an angle for the steps in radians from the loop iterator and a constant that I found to work well, then position
+the step by taking the cos for the x axis (times another constant) and the sin for the z axis (times the same constant).
+In between, the y axis is moved up by the iterator value multiplied by the height of each step, 0.5 units in this case.
+The step is then yawed by the iterator multiplied with the same angle constant from earlier (in degrees this time), and that
+wraps the interesting part of the scene.
+
+![Correctly Placed stairs](../journal/2020-08-23__005_Correctly_Placed_stairs.mp4)
+
+## Coordinate System
+
+![Example Coordinate System](../journal/2020-08-25__000_AxisDiagram.jpg)
+
+The coordinate system in G3D follows a right hand rule, with the x-axis defaulting right, y-axis pointing up, and z-axis
+point towards the camera. Instead of rotations being described as around an access, they are instead described as pitch,
+roll, and yaw, like the rotation axes of a plane. All of the angular translations increase counter-clockwise when viewing
+them from their respective axis' positive direction. I.e. looking at the pitch at the origin from the positive x-axis.
+
+## Results
+
+1. The first specification required me to create a single white 1m^3 rotated 45 degrees about the vertical (y) axis, which is yaw.
+
+![First Specification, showing a 45 degree yaw to the white cube](../journal/2020-08-22__001_Better_screenshot_showing_the_bounds_of_the_cube.jpg)
+
+2. The second spec wanted a model of the Cornell Box created by both editing a scene file and position the cubes in the scene
+
+![Second Specification showing my Cornell Box](../journal/2020-08-23__002_Final_Render_of_my_Cornell_box.jpg)
+
+3. Specification three was the most difficult, it required me to texture map a curving staircase without manuially editing the scene
+file or adjusting the scene in engine. To solve this, I created the StairGenerator (listed above) to create the scene file for me.
+
+![Third Specifiaction Video](../journal/2020-08-23__005_Correctly_Placed_stairs.mp4)
+
+4. The final specification required me to create a scene of my own design containing at least 20 cubes. Thats where I created the
+janky house, which features cubes of various sizes containing 6 different textures.
+
+![Janky Ass House](../journal/2020-08-23__006_Janky_Ass_House.jpg)
+
+## Custom Scene Process
+
+Creating my scene didn't take me too much time or effort (clearly), I was already pretty tired and I just wanted to move on to something
+else. To create it I just found a few different textures online and then assigned them to a cube model in the scene file. I also set the scale
+of each model and then added the entities for the model in my file. After creating all of the correct entities I launched the scene and
+editied positions and rotations of each object there
+
+## Typeset Test
+
+\begin{equation}
+\frac{df(x)}{dx}
+= \lim\limits_{h \to 0}
+\left\lbrack\frac{f(x+h)-f(x-h)}{2h}\right\rbrack
+\end{equation}
+
+## Questions
+
+   *1. What are the differences between the `Scene*` and `shared_ptr<Scene>` data types in C++?*
+    
+    A `Scene*` is a raw pointer to a scene object, essentially a pointer to a location in memory, while
+    a shared pointer is similar ( a pointer to a scene object) it differs by having the number of usages counted
+    so that it can be less likely to point to an already freed location in memory. This is a type of smart pointer
+    because it comes with a bit of garbage collection built in.
+
+   *2. How does G3D know where the scene files are located?*
+    
+    G3D requires scene files to be in the data-files folder (found after trying to load a scene from out side of it)
+    and the sample scenes are just referenced in the actual engine code itself so that their location is also checked.
+    While I couldn't find the actual code that looks in this specific folder, attempting to move a scene outside of the 
+    folder confirmed that this must be the location for them. What's cool though is the the search seems to happen recursively
+    because I can put my scenes in folders and they will still be found. The scene class has a function that sets the search
+    paths for locating scenes, so in theory you could put a scene anywhere as long as you update the path to search.
+
+   *3. Why should you to put your initialization code into `App::onInit` instead of constructor
+   `App::App`?  (Tip: There are many reasons. Try throwing an exception from each, and consider
+   the implications of throwing an exception from a class's constructor.)*
+    
+    Then main reason I can think of is so that if the constructor has an error then the code waitin to be initialized
+    won't run preventing a whole mess of errors from files depending on others which didn't have their objects sucessfully created
+
+    Plus, it feels strange to run external code in an object's constructor. The initialization function confirms that the app object
+    exists and was sucessfully constructed.
+
+   *4. What is the call chain that invokes `App::onGraphics3D`?*
+    
+    The full chain is pretty long, but jist of it is, `onGraphics3D` is called by onGraphics in GApp, which was caled by load scene
+    in the same class which was called in the App's onInit event, which was called by GApp's beginRun, which was called from
+    onRun, which was called by run, which was called by main.
+
+    *********************************************************************************************************************************************
+    *.----------.                                                                                                                               *
+    *|   main   | --> GApp::run --> GApp::onRun --> GApp::beginRun --> App::onInit --> GApp::loadScene --> GApp::onGraphics --> App:onGraphics3D*
+    *'----------'                                                                                                                               *
+    *********************************************************************************************************************************************
+
+   *5. Where is the file `cube.obj` stored on the file system?  How did the `Scene` parser know
+   to load it from there?*
+
+    The cube.obj file is in the engine files, in data10/common/model/cube. Like with the scenes themselves, the scene has a path to search
+    where is should look for models (in this case there are actually multiple paths). It recursively searches for paths that meet the provided
+    string in the scene file. For example, both the cube and crate are in a models folder, but in two different locations, so the scene just searches
+    it's reference paths until it finds a file that has the correct path or runs out of files to search. This is a really cool system and actually
+    much more advanced than I had anticipated.
+
+   *6. You can create a material in a scene file from a `Color3`. There are many more ways to
+   construct a G3D material, however. One of these takes separate `lambertian`, `glossy`,
+   `emissive`, and `transmissive` values. Speculate on why a homogeneous material (i.e., one
+   without a pattern or image) would require four separate "colors" in its specification.*
+
+    Having the 4 seperate pieces of data allowsd for much more precise control of how the object interacts with light, creating a much
+    more PBR appearance. Having just an rgb color will make the entire object that color only differing when the object is in direct light
+    or shadow. The 4 color properties all take values which explain to the renderer how light should interact with the object, for example,
+    the glossy most likely controls how much light is reflected directly at the viewing angle and the emissive determines the color of light 
+    the object itself emits.
+
+    ## Reflection
+    
+    For this just being the simple begginner project, I learned quite a bit. The code base is still very intimidating just because of how large it is
+    but I do feel like I'm starting to make actual mental connections between the components I have discovered so far. This project's readings didn't
+    teach me too much since they were primarily introductions, but I did learn some interesting C++ tips, like the = (assignment operator) actually has
+    a copy call so it is more efficient to pass a value into an objects constructor `int x(5)` vs `int x = 5`. Writing the report was
+    more difficult than I anticipated, but it really helped me to recal and confirm the things I learned so they are definately worth doing.
+
+
+    ## Time
+
+    Time for the general assignments took me 4:35, so right in the ballpark of the 5 hours estimated
+
+    Then I spent an adition 30 mins actually designing my custom scene and 2:45 working on the report.
+
+    So total time was ~ *7:44*
+
+    <style>
+        em.asterisk {
+            font-style: normal;
+            font-weight: bold;
+        }
+    </style>
+    <style class="fallback">
+        body {
+            visibility: hidden
+        }
+    </style>
+    <script>markdeepOptions={tocStyle:'long'};</script>
+    <!-- Markdeep: -->
+    <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?" charset="utf-8"></script>
