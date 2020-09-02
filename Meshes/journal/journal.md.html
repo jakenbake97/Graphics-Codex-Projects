@@ -1,35 +1,52 @@
 ﻿   <meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="https://casual-effects.com/markdeep/latest/journal.css?">
                  **Development Journal**
+2020-09-02 @ 4:39 pm: Writing to off file
+===========================================
+- The .off file seems pretty easy to write (which is super nice), so I should be able to generate it through two loops (one for verts and another for faces)
+- Having an issue with getting the TextOutput to open create the file with the two concatenated strings, so testing having the string literal added with the file name 
+and then if that doesn't work I'll put in a single string literal.
+    - The string literal for the relative path + the filename works, so I'll be able to use that for the rest of the project.
+- The model looked nothing like a cylinder so my current theory is that i need to use radians instead of degrees
+- converted to radians and the cylander works perfectly, the only issue is that it is inside out, so I need to reverse the order of indices
+- I am having an issue loading my sylander scene file for some reason, it is an exact copy of the cube scene so it should work, but isn't being found.
+    - solution to this problem was that the file extension ".Scene.Any" wasn't capitalized.
 
-2020 -09-01 @ 7:04 pm: OFF File Error
-   ====================================
-   I'm having an issue with loading my OFF model, I thought maybe I had enterd my face wrond, but when I copied over a 
-   unit cube I was getting the same error. The error reads "model/cube.off: 1(1): Unrecognized token type begging with 
-   character '>>' (ASCII 187). This is the ASCII symbol for that code ╗
-   
-   I created a new scene in visual studio associated with c++ and it loaded with no issues, therefore, I think that when I
-   Associated the files with text they were gettting some type of encoding on them that the parser could read. going to confirm my suspicion now.
-   So it isn't related to the file association, because I changed that in rider. For some reason the files created in rider
-   will not work while those in visual studio do. Rider mush be doing some form of encoding on the file when I don't want it to.
-   
-   Also, important note is that faces are supposed to be counter-clockwise
+2020-09-02 @ 1:06 pm: Cylinder Development
+========================================================
+- It turns out that vertex colors are not used by default in the engine, so they can be anything in the .off file.
+- I've found out that you can't have static const in C++ because there isn't a spot for it to be initialized.
+- I believe I have a setup which will correctly generate a cylinder, now i just need to write the method that converts verticies and faces to an .off file.
 
-   2020-09-01: Reading Project Documentation/Instructions
+
+ 2020-09-01 @ 7:04 pm: OFF File Error
+====================================
+I'm having an issue with loading my OFF model, I thought maybe I had enterd my face wrond, but when I copied over a 
+unit cube I was getting the same error. The error reads "model/cube.off: 1(1): Unrecognized token type begging with 
+character '>>' (ASCII 187). This is the ASCII symbol for that code ╗
+
+I created a new scene in visual studio associated with c++ and it loaded with no issues, therefore, I think that when I
+Associated the files with text they were gettting some type of encoding on them that the parser could read. going to confirm my suspicion now.
+So it isn't related to the file association, because I changed that in rider. For some reason the files created in rider
+will not work while those in visual studio do. Rider mush be doing some form of encoding on the file when I don't want it to.
+
+Also, important note is that faces are supposed to be counter-clockwise
+
+2020-09-01: Reading Project Documentation/Instructions
 =====================================================
-   I've begun reading through the instructions for this poject and want to document any thoughts or notes here for 
-   referenceas I continue to work on it.
-   
-   - NGons and quads are ok, because G3D willautomatically tessellate to triangles
-   - The .off file format is actually pretty simple, here is the [documentation]("http://www.geomview.org/docs/html/OFF.html") and an [example of a unit cube]("https://people.sc.fsu.edu/~jburkardt/data/off/unitcube.off").
-   - Rules state that there should be no colocated vertices, so they will need to use the indicies of the existing ones
-   
-   [ ] Axis-aligned cube with unit edge lengths, centered on the origin.
-   [ ] Create a procedure to generate a cylinder with given radius and height.
-   [ ] Create UI for make cylinder
-   [ ] Create a procedure to generate a heightfield with elevation from grayscale
-    [ ] Create UI for heightfield image selection and scale
-   [ ] Crete a procedure that generates a drinking glass from a contour by creating a solid of revolution
-   [ ] Create a visually interesting scene by combining elements from the program.
+I've begun reading through the instructions for this poject and want to document any thoughts or notes here for 
+referenceas I continue to work on it.
+
+- NGons and quads are ok, because G3D will automatically tessellate to triangles
+- The .off file format is actually pretty simple, here is the [documentation]("http://www.geomview.org/docs/html/OFF.html") and an [example of a unit cube]("https://people.sc.fsu.edu/~jburkardt/data/off/unitcube.off").
+- Rules state that there should be no colocated vertices, so they will need to use the indicies of the existing ones
+
+[x] Axis-aligned cube with unit edge lengths, centered on the origin.
+[ ] Create a procedure to generate a cylinder with given radius and height.
+[ ] Create UI for make cylinder
+[ ] Create a procedure to generate a heightfield with elevation from grayscale
+ [ ] Create UI for heightfield image selection and scale
+[ ] Crete a procedure that generates a drinking glass from a contour by creating a solid of revolution
+[ ] Create a visually interesting scene by combining elements from the program.
 
 <style>em.asterisk { font-style: normal; font-weight: bold; }</style><style class="fallback">body{visibility:hidden}</style><script>markdeepOptions={tocStyle:'long'};</script>
 <!-- Markdeep: --><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?" charset="utf-8"></script>

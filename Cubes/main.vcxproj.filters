@@ -23,7 +23,6 @@
     <None Include="journal\journal.md.html" />
     <None Include="data-files\Scene\WhiteCube.Scene.Any" />
     <None Include="data-files\Scene\TiltedCube.Scene.Any" />
-    <None Include="data-files\scene\Staircase.Scene.Any" />
     <None Include="doc-files\report.md.html" />
     <None Include="data-files\scene\MyDesign.Scene.Any" />
     <None Include="data-files\scene\MyCornellBox.Scene.Any" />

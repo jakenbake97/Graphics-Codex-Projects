@@ -94,13 +94,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\App.cpp" />
+    <ClCompile Include="source\GenerateModels.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resources.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data-files\model\cube.off" />
-    <None Include="data-files\scene\test.Scene.Any" />
+    <None Include="data-files\scene\cube.Scene.Any" />
+    <None Include="data-files\scene\cylinder.scene.any" />
     <None Include="Doxyfile" />
     <None Include="journal\journal.md.html" />
     <None Include="mainpage.dox" />

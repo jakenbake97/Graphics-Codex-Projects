@@ -1,5 +1,6 @@
 /** \file App.cpp */
 #include "App.h"
+#include "GenerateModels.cpp"
 
 // Tells C++ to invoke command-line main() function even on OS X and Win32.
 G3D_START_AT_MAIN();
@@ -77,8 +78,10 @@ void App::onInit() {
     // the default scene here.
     
     showRenderingStats      = false;
-
-    loadScene("scene/test.Scene.Any");
+    GenerateModels generator;
+    generator.MakeCylinder(2, 3, 6, "cylinder.off" );
+	
+    loadScene("Cube Scene");
 
     // Make the GUI after the scene is loaded because loading/rendering/simulation initialize
     // some variables that advanced GUIs may wish to reference with pointers.

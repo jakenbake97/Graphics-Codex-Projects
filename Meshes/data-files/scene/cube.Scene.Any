@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 { 
-    name = "Test Scene"; 
+    name = "Cube Scene"; 
 
     entities = 
     { 
@@ -49,7 +49,7 @@
         }; 
         
         cubeModel = ArticulatedModel::Specification {
-            filename = "model/riderUTF.off";
+            filename = "model/cylinder.off";
         };
 
     };

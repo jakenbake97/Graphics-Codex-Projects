@@ -4,6 +4,7 @@
     <ClCompile Include="source\App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\GenerateModels.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\App.h">
@@ -17,8 +18,9 @@
     <None Include="mainpage.dox" />
     <None Include="Doxyfile" />
     <None Include="journal\journal.md.html" />
-    <None Include="data-files\scene\test.Scene.Any" />
     <None Include="data-files\model\cube.off" />
+    <None Include="data-files\scene\cube.Scene.Any" />
+    <None Include="data-files\scene\cylinder.scene.any" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
