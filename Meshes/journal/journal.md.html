@@ -1,5 +1,10 @@
 ﻿   <meta charset="utf-8" emacsmode="-*- markdown -*-"><link rel="stylesheet" href="https://casual-effects.com/markdeep/latest/journal.css?">
                  **Development Journal**
+2020-09-02 @ 8:36 pm: Vertex indice order
+=============================================
+![Manually entered order of verticies]("CylinderVerts.jpg")
+I finally figured out that I wasn't doing anything wrong it was because of the stupid "visual studio needs to rebuild completely" thing.
+
 2020-09-02 @ 4:39 pm: Writing to off file
 ===========================================
 - The .off file seems pretty easy to write (which is super nice), so I should be able to generate it through two loops (one for verts and another for faces)
@@ -8,8 +13,10 @@ and then if that doesn't work I'll put in a single string literal.
     - The string literal for the relative path + the filename works, so I'll be able to use that for the rest of the project.
 - The model looked nothing like a cylinder so my current theory is that i need to use radians instead of degrees
 - converted to radians and the cylander works perfectly, the only issue is that it is inside out, so I need to reverse the order of indices
-- I am having an issue loading my sylander scene file for some reason, it is an exact copy of the cube scene so it should work, but isn't being found.
+- I am having an issue loading my cylinder scene file for some reason, it is an exact copy of the cube scene so it should work, but isn't being found.
     - solution to this problem was that the file extension ".Scene.Any" wasn't capitalized.
+    - nope, scene actually still isn't loading
+    - ok I think it was file name since It worked in procedural scene. I think the issue was because i couldn't rename it in VS.
 
 2020-09-02 @ 1:06 pm: Cylinder Development
 ========================================================
@@ -41,7 +48,7 @@ referenceas I continue to work on it.
 - Rules state that there should be no colocated vertices, so they will need to use the indicies of the existing ones
 
 [x] Axis-aligned cube with unit edge lengths, centered on the origin.
-[ ] Create a procedure to generate a cylinder with given radius and height.
+[x] Create a procedure to generate a cylinder with given radius and height.
 [ ] Create UI for make cylinder
 [ ] Create a procedure to generate a heightfield with elevation from grayscale
  [ ] Create UI for heightfield image selection and scale

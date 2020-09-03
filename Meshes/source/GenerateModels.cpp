@@ -41,23 +41,23 @@ public:
 		// Create the top and bottom endcap
 		Face bottomEndCap;
 		Face topEndCap;
-
 		// generate faces by looping through vertices and adding their index to faces.
 		for (int i = 0; i < numSegments - 1; ++i)
 		{
 			bottomEndCap.indices.append(i);
-			topEndCap.indices.append(numSegments + i);
+			topEndCap.indices.append((numSegments * 2 - 1) - i);
 
-			Face temp{ {i, i + 1, numSegments + i + 1, numSegments + i} };
+			Face temp{ {i +1, i, numSegments + i, numSegments + i + 1} };
 			faces.append(temp);
 		}
-		bottomEndCap.indices.append(numSegments - 1);
-		topEndCap.indices.append(numSegments + numSegments - 1);
-		faces.append(bottomEndCap, topEndCap);
-		
-		const Face temp{ {numSegments, 0, numSegments + 1, numSegments + numSegments - 1} };
+		const Face temp{ {0, numSegments - 1, vertices.lastIndex(), numSegments} };
 		faces.append(temp);
-
+		
+		bottomEndCap.indices.append(numSegments - 1);
+		topEndCap.indices.append(numSegments);
+		faces.append(bottomEndCap);
+		faces.append(topEndCap);
+		
 		WriteToFile(fileName);
 	}
 
@@ -92,7 +92,7 @@ private:
 		for (const auto& face : faces)
 		{
 			modelFile.writeNumber(face.indices.length()); // print the number of verts for this face
-			for (int i = face.indices.lastIndex(); i >= 0; --i ) // print out the vertex indices for each face
+			for (int i = 0; i < face.indices.length(); ++i ) // print out the vertex indices for each face
 			{
 				modelFile.writeNumber(face.indices[i]);
 			}

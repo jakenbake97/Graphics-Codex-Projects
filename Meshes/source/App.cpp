@@ -79,7 +79,7 @@ void App::onInit() {
     
     showRenderingStats      = false;
     GenerateModels generator;
-    generator.MakeCylinder(2, 3, 6, "cylinder.off" );
+    generator.MakeCylinder(1, 1, 15, "cylinder.off" );
 	
     loadScene("Cube Scene");
 

@@ -49,7 +49,7 @@
         }; 
         
         cubeModel = ArticulatedModel::Specification {
-            filename = "model/cylinder.off";
+            filename = "model/cube.off";
         };
 
     };

@@ -103,6 +103,7 @@
     <None Include="data-files\model\cube.off" />
     <None Include="data-files\scene\cube.Scene.Any" />
     <None Include="data-files\scene\cylinder.scene.any" />
+    <None Include="data-files\scene\Procedural.Scene.Any" />
     <None Include="Doxyfile" />
     <None Include="journal\journal.md.html" />
     <None Include="mainpage.dox" />
